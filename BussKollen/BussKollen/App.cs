@@ -30,6 +30,8 @@ namespace BussKollen
         protected override void OnStart()
         {
             // Handle when your app starts
+            //Test test test
+            var x = 1;
         }
 
         protected override void OnSleep()
