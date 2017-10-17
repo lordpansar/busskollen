@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussKollen.iOS", "BussKolle
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussKollen", "BussKollen\BussKollen\BussKollen.csproj", "{70AEB8FC-E2BA-499E-8B1C-26D56DEC9D89}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Targets", "Targets", "{7BAD57F3-3223-42A4-A4B4-2952948C6270}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
@@ -192,6 +194,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{33E11878-BD7D-455A-8612-D41AF90AAC8B} = {7BAD57F3-3223-42A4-A4B4-2952948C6270}
+		{05EF7C20-A27E-4E55-843D-FF6BD443C2CE} = {7BAD57F3-3223-42A4-A4B4-2952948C6270}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C40F01D9-0427-4995-BFD6-CFCDB2118CFE}
