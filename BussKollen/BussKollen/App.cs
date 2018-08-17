@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
+﻿using BussKollen.Views;
 using Xamarin.Forms;
 
 namespace BussKollen
@@ -12,19 +8,7 @@ namespace BussKollen
         public App()
         {
             // The root page of your application
-            MainPage = new ContentPage
-            {
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Busskollen!"
-                        }
-                    }
-                }
-            };
+            MainPage = new NavigationPage(new MainPage() { Title = "Hej!" });
         }
 
         protected override void OnStart()
