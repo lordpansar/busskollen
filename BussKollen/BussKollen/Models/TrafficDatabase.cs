@@ -1,5 +1,6 @@
 ﻿using BussKollen.Interfaces;
-using SQLite.Net;
+using SQLite;
+using Xamarin.Forms;
 
 namespace BussKollen.Models
 {
@@ -7,5 +8,12 @@ namespace BussKollen.Models
     {
         private SQLiteConnection db;
         static object locker = new object();
+
+        public TrafficDatabase()
+        {
+            db = DependencyService.Get<ISQLite>().GetConnection();
+            db.CreateTable<StarredRoute>();
+            db.CreateTable<Travel>();
+        }
     }
 }
