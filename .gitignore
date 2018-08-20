@@ -243,4 +243,4 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
-BussKollen/BussKollen/Assets/Keys\.cs
+BussKollen/BussKollen/Assets/Key\.cs
