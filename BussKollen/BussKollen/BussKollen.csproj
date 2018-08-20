@@ -37,11 +37,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
-    <Compile Include="Assets\Keys.cs" />
+    <Compile Include="Assets\Key.cs" />
     <Compile Include="Interfaces\ISQLite.cs" />
+    <Compile Include="Models\Destination.cs" />
+    <Compile Include="Models\FareItem.cs" />
+    <Compile Include="Models\FareSetItem.cs" />
+    <Compile Include="Models\JourneyDetailRef.cs" />
+    <Compile Include="Models\Leg.cs" />
+    <Compile Include="Models\LegList.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationResponse.cs" />
+    <Compile Include="Models\Origin.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ServiceDay.cs" />
     <Compile Include="Models\StarredRoute.cs" />
+    <Compile Include="Models\TariffResult.cs" />
     <Compile Include="Models\TrafficDatabase.cs" />
     <Compile Include="Models\Travel.cs" />
+    <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\TravelService.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
