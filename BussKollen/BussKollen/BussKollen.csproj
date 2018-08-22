@@ -46,6 +46,7 @@
     <Compile Include="Models\Leg.cs" />
     <Compile Include="Models\LegList.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="ViewModels\LocationDTO.cs" />
     <Compile Include="Models\LocationResponse.cs" />
     <Compile Include="Models\Origin.cs" />
     <Compile Include="Models\Product.cs" />
