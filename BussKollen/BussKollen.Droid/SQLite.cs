@@ -10,7 +10,7 @@ namespace BussKollen.Droid
 {
     public class SQLite_Android : ISQLite
     {
-        //public class SQLite_Android() {}
+        public SQLite_Android() {}
 
         public SQLiteConnection GetConnection()
         {
@@ -20,7 +20,7 @@ namespace BussKollen.Droid
             string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal); //Documents folder
             var path = Path.Combine(documentsPath, sqliteFilename);
             //Create Connection
-            var connection = new SQLiteConnection(path); //Kolla om den här verkligen funkar
+            var connection = new SQLiteConnection(path);
 
             return connection;
         }
