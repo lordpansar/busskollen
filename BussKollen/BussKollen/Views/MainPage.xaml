@@ -4,9 +4,8 @@
              x:Class="BussKollen.Views.MainPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Entry x:Name="StartLocation"></Entry>
+            <Button Text="Click me!" x:Name="BtnRequest" IsVisible="True" IsEnabled="True"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
