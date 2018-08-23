@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BussKollen.Views.MainPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Entry x:Name="StartLocation"></Entry>
-            <Button Text="Click me!" x:Name="BtnRequest" IsVisible="True" IsEnabled="True"/>
+        <StackLayout Padding="20" Orientation="Vertical">
+            <Label Text="Jag vill åka från:" />
+            <Label x:Name="LblWarningStart" IsVisible="False"/>
+            <Entry x:Name="TxtStartLocation"/>
+            <Picker x:Name="StartLocationPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
+            <Label Text="Jag vill åka till:" />
+            <Label x:Name="LblWarningFinal" IsVisible="False"/>
+            <Entry x:Name="TxtFinalLocation"/>
+            <Picker x:Name="FinalLocationPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
+            <Button Text="Sök" x:Name="BtnSearch" IsVisible="True" IsEnabled="False"/>
         </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
