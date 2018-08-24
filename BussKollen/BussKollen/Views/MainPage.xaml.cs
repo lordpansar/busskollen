@@ -12,27 +12,29 @@ namespace BussKollen.Views
     public partial class MainPage : ContentPage
     {
         private TravelService _service;
-        private int startLocationID;
-        private int finalLocationID;
+        private int originLocationID;
+        private int destinationLocationID;
 
         public MainPage()
         {
             _service = new TravelService();
             InitializeComponent();
-            
+
             //Event handlers
-            TxtStartLocation.TextChanged += StartLocation_TextChanged;
-            StartLocationPicker.SelectedIndexChanged += StartPicker_Selected;
-            FinalLocationPicker.SelectedIndexChanged += FinalPicker_Selected;
+            TxtOriginLocation.TextChanged += StartLocation_TextChanged;
+            TxtDestinationLocation.TextChanged += FinalLocation_TextChanged;
+            OriginPicker.SelectedIndexChanged += StartPicker_Selected;
+            DestinationPicker.SelectedIndexChanged += FinalPicker_Selected;
             BtnSearch.Clicked += BtnSearch_Clicked;
         }
 
         private async void StartLocation_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (TxtStartLocation.Text.Length > 2)
+            if (TxtOriginLocation.Text.Length > 2)
             {
-                var locationList = await GetLocation(TxtStartLocation.Text);
-                BindLocationPicker(LblWarningStart, StartLocationPicker, locationList);
+                originLocationID = 0;
+                var locationList = await GetLocation(TxtOriginLocation.Text);
+                BindLocationPicker(LblOriginWarning, OriginPicker, locationList);
             }
         }
 
@@ -55,9 +57,19 @@ namespace BussKollen.Views
 
         private void StartPicker_Selected(object sender, EventArgs e)
         {
-            TxtStartLocation.Text = "";
-            startLocationID = GetLocationID(StartLocationPicker);
-            ToggleSearchButton();
+            TxtOriginLocation.Text = "";
+            originLocationID = GetLocationID(OriginPicker);
+
+            if(originLocationID > 0)
+            {
+                TxtOriginLocation.IsVisible = false;
+                OriginPicker.IsEnabled = false;
+                ToggleSearchButton();
+            }
+            else
+            {
+                LblOriginWarning.Text = "Något gick fel. Försök igen.";
+            }
         }
 
         private void FinalPicker_Selected(object sender, EventArgs e)
@@ -74,7 +86,7 @@ namespace BussKollen.Views
 
         private int GetLocationID(Picker picker)
         {
-            var location = (LocationDTO)FinalLocationPicker.SelectedItem;
+            var location = (LocationDTO)picker.SelectedItem;
             return location.Id;
         }
 
@@ -83,14 +95,14 @@ namespace BussKollen.Views
             return await _service.GetLocation(query);
         }
 
-        private void ShowResults()
+        private void PresentDepartures()
         {
             Navigation.PushAsync(new SearchResultPage());
         }
 
         private void ToggleSearchButton()
         {
-            if (startLocationID > 0 && finalLocationID > 0 && startLocationID != finalLocationID)
+            if (originLocationID > 0 && destinationLocationID > 0 && originLocationID != destinationLocationID)
             {
                 BtnSearch.IsEnabled = true;
             }

@@ -1,18 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BussKollen.Views.MainPage">
     <ContentPage.Content>
         <StackLayout Padding="20" Orientation="Vertical">
             <Label Text="Jag vill åka från:" />
-            <Label x:Name="LblWarningStart" IsVisible="False"/>
-            <Entry x:Name="TxtStartLocation"/>
-            <Picker x:Name="StartLocationPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
+            <Label x:Name="LblOriginWarning" IsVisible="False"/>
+            <Entry x:Name="TxtOriginLocation"/>
+            <Picker x:Name="OriginPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
             <Label Text="Jag vill åka till:" />
-            <Label x:Name="LblWarningFinal" IsVisible="False"/>
-            <Entry x:Name="TxtFinalLocation"/>
-            <Picker x:Name="FinalLocationPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
+            <Label x:Name="LblDestinationWarning" IsVisible="False"/>
+            <Entry x:Name="TxtDestinationLocation"/>
+            <Picker x:Name="DestinationPicker" ItemDisplayBinding="{Binding Name}" SelectedItem="{Binding LocationDTO}" Title="Hållplatser" IsVisible="False"/>
             <Button Text="Sök" x:Name="BtnSearch" IsVisible="True" IsEnabled="False"/>
+            <Button Text="Ny sökning" x:Name="BtnReset" IsVisible="True"/>
         </StackLayout>
         
     </ContentPage.Content>
