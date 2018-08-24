@@ -57,6 +57,7 @@
     <Compile Include="Models\Travel.cs" />
     <Compile Include="Models\Trip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\HttpClientHelper.cs" />
     <Compile Include="Services\TravelService.cs" />
     <Compile Include="Views\SearchResultPage.xaml.cs">
       <DependentUpon>SearchResultPage.xaml</DependentUpon>

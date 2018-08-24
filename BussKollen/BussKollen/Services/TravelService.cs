@@ -1,4 +1,4 @@
-﻿using BussKollen.Assets;
+using BussKollen.Assets;
 using BussKollen.Models;
 using Newtonsoft.Json;
 using System;
@@ -11,6 +11,11 @@ namespace BussKollen.Services
 {
     public class TravelService
     {
+        public TravelService()
+        {
+
+        }
+
         public void ConstructLocationRequest()
         {
             throw new NotImplementedException();
@@ -25,7 +30,7 @@ namespace BussKollen.Services
         {
             var key = Key.LocationKey;
             var path = $"http://api.sl.se/api2/typeahead.json?key={key}&searchstring={station}&stationsonly=true&maxresults=5";
-
+            
             var response = MakeGetHttpRequest(path);
 
             if (response.IsSuccessStatusCode)
@@ -57,7 +62,7 @@ namespace BussKollen.Services
 
         private HttpResponseMessage MakeGetHttpRequest(string path)
         {
-            var client = new HttpClient();
+            var client = HttpClientHelper.Instance;
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
             return client.GetAsync(path).Result;
