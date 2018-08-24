@@ -38,6 +38,16 @@ namespace BussKollen.Views
             }
         }
 
+        private async void FinalLocation_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TxtDestinationLocation.Text.Length > 2)
+            {
+                destinationLocationID = 0;
+                var locationList = await GetLocation(TxtDestinationLocation.Text);
+                BindLocationPicker(LblDestinationWarning, DestinationPicker, locationList);
+            }
+        }
+
         private void BindLocationPicker(Label label, Picker picker, List<LocationDTO> locationList)
         {
             if (locationList != null)
@@ -74,9 +84,19 @@ namespace BussKollen.Views
 
         private void FinalPicker_Selected(object sender, EventArgs e)
         {
-            TxtFinalLocation.Text = "";
-            finalLocationID = GetLocationID(StartLocationPicker);
-            ToggleSearchButton();
+            TxtDestinationLocation.Text = "";
+            destinationLocationID = GetLocationID(DestinationPicker);
+
+            if (destinationLocationID > 0)
+            {
+                TxtDestinationLocation.IsVisible = false;
+                DestinationPicker.IsEnabled = false;
+                ToggleSearchButton();
+            }
+            else
+            {
+                LblOriginWarning.Text = "Något gick fel. Försök igen.";
+            }
         }
 
         private void BtnSearch_Clicked(object sender, EventArgs e)
