@@ -5,14 +5,14 @@ namespace BussKollen.Services
     public class HttpClientHelper
     {
         static HttpClientHelper _instance;
-        static HttpClient client;
+        HttpClient client;
 
         public HttpClientHelper()
         {
             client = new HttpClient();
         }
 
-        public static HttpClient Instance
+        public static HttpClientHelper Instance
         {
             get
             {
@@ -20,8 +20,9 @@ namespace BussKollen.Services
                 {
                     _instance = new HttpClientHelper();
                 }
-                return client;
+                return _instance;
             }
         }
+        public HttpClient Client => client;
     }
 }

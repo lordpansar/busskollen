@@ -62,10 +62,12 @@ namespace BussKollen.Services
 
         private HttpResponseMessage MakeGetHttpRequest(string path)
         {
-            var client = HttpClientHelper.Instance;
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-            return client.GetAsync(path).Result;
+            var message = new HttpRequestMessage(HttpMethod.Get, path);
+            message.Headers.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            var response =  HttpClientHelper.Instance.Client.SendAsync(message);
+            response.Wait();
+            
+            return response.Result;
         }
 
         private List<LocationDTO> GetDTOs(List<Location> locationList)
